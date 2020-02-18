@@ -5,7 +5,6 @@ import CartProduct from "./CartProduct";
 import { updateCart } from "../../services/total/actions";
 import { formatPrice } from '../../services/util';
 import {
-  removeProduct,
   changeProductQuantity
 } from "../../services/cart/actions";
 
@@ -56,21 +55,7 @@ class Cart extends React.Component {
     const { cartProducts, updateCart, user } = this.props;
     const product = cartProducts.find(p => p.id === changedProduct.id);
     product.quantity = changedProduct.quantity;
-
-    if (product.quantity <= 0) {
-      this.removeProduct(product);
-    }
-
     updateCart(cartProducts, user);
-  };
-
-  removeProduct = product => {
-    const { cartProducts, updateCart, user } = this.props;
-    const index = cartProducts.findIndex(p => p.id === product.id);
-    if (index >= 0) {
-      cartProducts.splice(index, 1);
-      updateCart(cartProducts, user);
-    }
   };
 
   render() {
@@ -79,7 +64,6 @@ class Cart extends React.Component {
       return (
         <CartProduct
           product={p}
-          removeProduct={removeProduct}
           changeProductQuantity={changeProductQuantity}
           key={p.id}
         />

@@ -9,7 +9,7 @@ class ProductList extends React.Component {
   };
 
   render() {
-    const { products, cartTotal } = this.props;
+    const { products } = this.props;
 
     let productUI = products.map(p => {
       return <Product product={p} key={p.id} />;
@@ -35,8 +35,7 @@ class ProductList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.productStore.products,
-  cartTotal: state.total.data
+  products: state.productStore.products
 });
 
 export default connect(mapStateToProps, null)(ProductList);

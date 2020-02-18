@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 class CartProduct extends Component {
   static propTypes = {
     product: PropTypes.object.isRequired,
-    removeProduct: PropTypes.func.isRequired,
     changeProductQuantity: PropTypes.func.isRequired
   };
 
@@ -32,7 +31,6 @@ class CartProduct extends Component {
   };
 
   render() {
-    const { removeProduct } = this.props;
     const { product } = this.state;
 
     return (

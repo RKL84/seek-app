@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from './actionTypes';
+import { ADD_PRODUCT, CHANGE_PRODUCT_QUANTITY } from './actionTypes';
 
 
 const initialState = {
@@ -11,11 +11,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 productToAdd: Object.assign({}, action.payload)
-            };
-        case REMOVE_PRODUCT:
-            return {
-                ...state,
-                productToRemove: Object.assign({}, action.payload)
             };
         case CHANGE_PRODUCT_QUANTITY:
             return {
