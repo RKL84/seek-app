@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import CartProduct from "./CartProduct";
 import { updateCart } from "../../services/total/actions";
+import { formatPrice } from '../../services/util';
 import {
   removeProduct,
   changeProductQuantity
@@ -104,7 +105,7 @@ class Cart extends React.Component {
             <tfoot>
               <tr>
                 <td class="hidden-xs text-center">
-                  <strong>Total {cartTotal.totalPrice}</strong>
+                  <strong>Total {formatPrice(cartTotal.totalPrice)}</strong>
                 </td>
               </tr>
             </tfoot>
